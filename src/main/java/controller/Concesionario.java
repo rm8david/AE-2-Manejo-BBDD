@@ -4,6 +4,7 @@ import dao.CochesDAO;
 import model.Coche;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Concesionario {
@@ -60,6 +61,30 @@ public class Concesionario {
             System.out.println("Se ha borrado "+cochesDAO.deleteCoche(id));
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    public void actualizarCoche(){
+        System.out.println("Introduzca la marca");
+        String marca = sc.nextLine();
+        System.out.println("Introduzca el modelo");
+        String modelo = sc.nextLine();
+        System.out.println("Cuantos caballos tiene?");
+        int caballos = sc.nextInt();
+        try {
+            int actualizados = cochesDAO.updateCoche(marca,modelo,caballos);
+            System.out.println("Se han actualizado "+actualizados);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void sacarListado(){
+        try {
+            ArrayList<Coche> listado = cochesDAO.sacarListado();
+            for(Coche coche : listado){
+                System.out.println(coche);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CochesDAO {
     private Connection connection;
@@ -49,6 +50,28 @@ public class CochesDAO {
             return mapearCoche(marca, modelo, cv, precio, matricula);
             //System.out.println(coche);
         }else return null;
+    }
+    public ArrayList<Coche> sacarListado() throws SQLException {
+        ArrayList<Coche> coches = new ArrayList<>();
+        String query = String.format("SELECT * FROM %s", DBSchema.TAB_CH);
+        preparedStatement = connection.prepareStatement(query);
+        resultSet = preparedStatement.executeQuery();
+        while(resultSet.next()){
+            String marca = resultSet.getString(DBSchema.COL_CH_MAR);
+            String modelo = resultSet.getString(DBSchema.COL_CH_MO);
+            int cv = resultSet.getInt(DBSchema.COL_CH_CV);
+            double precio = resultSet.getDouble(DBSchema.COL_CH_PRE);
+            String matricula = resultSet.getString(DBSchema.COL_CH_MAT);
+            coches.add(mapearCoche(marca, modelo, cv, precio, matricula));
+        }return coches;
+    }
+    public int updateCoche(String marca, String modelo, int caballos) throws SQLException {
+        String query = String.format("UPDATE %s SET %s = ? WHERE %s= ? AND %s = ?;",DBSchema.TAB_CH,DBSchema.COL_CH_CV,DBSchema.COL_CH_MAR,DBSchema.COL_CH_MO);
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, caballos);
+        preparedStatement.setString(2, marca);
+        preparedStatement.setString(3, modelo);
+        return preparedStatement.executeUpdate();
     }
     private Coche mapearCoche(String marca, String modelo, int cv,double precio, String matricula){
         return new Coche(marca,modelo,cv,precio,matricula);

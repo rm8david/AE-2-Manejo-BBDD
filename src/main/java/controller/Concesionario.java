@@ -65,9 +65,9 @@ public class Concesionario {
     }
     public void actualizarCoche(){
         System.out.println("Introduzca la marca");
-        String marca = sc.nextLine();
+        String marca = sc.next();
         System.out.println("Introduzca el modelo");
-        String modelo = sc.nextLine();
+        String modelo = sc.next();
         System.out.println("Cuantos caballos tiene?");
         int caballos = sc.nextInt();
         try {

@@ -16,6 +16,12 @@ public class Pasajero {
     private int peso;
     private int cocheId;
 
+    public Pasajero(String nombre, int edad, int peso) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.peso = peso;
+    }
+
     @Override
     public String toString() {
         return "Pasajero{" +

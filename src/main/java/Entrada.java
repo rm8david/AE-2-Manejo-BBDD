@@ -1,14 +1,11 @@
 import controller.Concesionario;
-import dao.CochesDAO;
-import dao.PasajeroDAO;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Entrada {
     public static void main(String[] args) {
         Concesionario concesionario = new Concesionario();
-        CochesDAO cochesDAO = new CochesDAO();
+
         int opcion = 0;
         Scanner sc = new Scanner(System.in);
         do {

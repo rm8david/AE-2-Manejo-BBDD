@@ -6,14 +6,12 @@ import java.sql.SQLException;
 
 public class DBConection {
     private static Connection connection;
-
     public Connection getConnection() {
         if(connection == null) {
             newConnection();
         }
         return connection;
     }
-
     private void newConnection() {
         String url = "jdbc:mysql://localhost/"+DBSchema.DB_NAME;
         try {

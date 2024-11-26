@@ -77,7 +77,6 @@ public class PasajeroDAO {
         preparedStatement.setInt(2, idPasajero);
         preparedStatement.setInt(3, idCoche);
         return preparedStatement.executeUpdate() > 0;
-
     }
     public ArrayList<Pasajero> listarPasajerosCoche(int idCoche) throws SQLException {
         connection = new DBConection().getConnection();

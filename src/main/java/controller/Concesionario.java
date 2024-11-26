@@ -41,8 +41,6 @@ public class Concesionario {
                 System.out.println("El coche se ha agregado correctamente");
                 System.out.println(coche);
             } else System.out.println("Algo ha fallado al agregar un coche");
-
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -55,11 +53,9 @@ public class Concesionario {
             if (cochesDAO.buscarCoche(id) != null) {
                 System.out.println(cochesDAO.buscarCoche(id));
             } else System.out.println("El id no existe");
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     public void borrarCoche() {
@@ -165,7 +161,6 @@ public class Concesionario {
         } catch (SQLException e) {
             System.out.println("Error al sacar listado de coches");
         }
-
     }
     public void eliminarPasajeroCoche(){
         System.out.println("Introduzca el id del coche");

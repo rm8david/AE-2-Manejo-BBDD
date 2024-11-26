@@ -1,10 +1,8 @@
 package model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+@ToString
 @Setter
 @Getter
 @AllArgsConstructor
@@ -22,14 +20,5 @@ public class Pasajero {
         this.peso = peso;
     }
 
-    @Override
-    public String toString() {
-        return "Pasajero{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", peso=" + peso +
-                ", cocheId=" + cocheId +
-                '}';
-    }
+
 }

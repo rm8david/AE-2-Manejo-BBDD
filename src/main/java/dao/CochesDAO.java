@@ -29,7 +29,6 @@ public class CochesDAO {
         preparedStatement.setDouble(4,coche.getPrecio());
         preparedStatement.setString(5,coche.getMatricula());
         return preparedStatement.executeUpdate()>0;
-
     }
     public int deleteCoche(int id) throws SQLException {
         connection = new DBConection().getConnection();
@@ -52,7 +51,6 @@ public class CochesDAO {
             double precio = resultSet.getDouble(DBSchema.COL_CH_PRE);
             String matricula = resultSet.getString(DBSchema.COL_CH_MAT);
             return mapearCoche(idresultado,marca, modelo, cv, precio, matricula);
-
         }else return null;
     }
 
